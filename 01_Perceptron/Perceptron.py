@@ -47,6 +47,15 @@ class Perceptron:
 
         # TODO: Put your code (fit algorithm)
 
+        for _ in range (self.n_iter):
+            for x_fila, y_fila in zip(X, y):
+
+                y_capell=self.predict(x_fila)
+
+                actualitzar = self.eta*(y_capell-y_fila)
+
+                update = actualitzar * x_fila
+
 
     def predict(self, X):
         """Return class label.
@@ -56,5 +65,6 @@ class Perceptron:
         """
 
         # TODO: Put your code
+        return np.dot(X, self.w_[1:])*self.w_[0]
 
         return np.random.randint(0, 2, size=X.shape[0])  # remove
