@@ -56,9 +56,15 @@ class Adaline(object):
             if self.shuffle:
                 X, y = self.__shuffle(X, y)
 
+            sum = 0
             for xi, target in zip(X, y):
+                # TODO: Put your code here
+                xi=np.insert(xi,0,1)
+                activate= np.dot(np.transpose(self.w_),xi)
+                self.w_+=self.eta * (np.dot((target-activate),xi))
 
-               # TODO: Put your code here
+                #errors += int(update != 0.0)
+            #self.errors_.append(errors)
 
 
 
