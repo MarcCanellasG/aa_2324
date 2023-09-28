@@ -45,7 +45,13 @@ class Adaline:
         self.cost_ = []  # Per calcular el cost a cada iteració (EXTRA)
 
         for _ in range(self.n_iter):
-            # TODO: PUT YOUR CODE HERE
+            
+            X0 = np.hstack([np.ones((X.shape[0],1)),X])
+            
+            activate = np.dot(X0,np.transpose(self.w_))
+            
+            self.w_ += self.eta * (np.dot((y-activate), X0))
+            
 
     def net_output(self, X):
         """Calculate net output"""
