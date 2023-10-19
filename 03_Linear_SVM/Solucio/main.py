@@ -5,6 +5,8 @@ from sklearn.preprocessing import StandardScaler
 from Adaline import Adaline
 from sklearn.svm import SVC
 
+def kernel_lineal(x1, x2):
+     return x1.dot(x2.T)
 
 # Generació del conjunt de mostres
 X, y = make_classification(n_samples=100, n_features=2, n_redundant=0, n_repeated=0,
