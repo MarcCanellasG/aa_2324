@@ -63,8 +63,6 @@ class Adaline(object):
                 activate= np.dot(np.transpose(self.w_),xi)
                 self.w_+=self.eta * (np.dot((target-activate),xi))
 
-                #errors += int(update != 0.0)
-            #self.errors_.append(errors)
 
 
 
