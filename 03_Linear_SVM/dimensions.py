@@ -3,6 +3,7 @@ import numpy as np
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score
 
 from Adaline import Adaline
 from sklearn.svm import SVC 
@@ -15,23 +16,26 @@ X, y = make_classification(n_samples=400, n_features=5, n_redundant=0, n_repeate
 
 # Separar les dades: train_test_split
 # TODO
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+
+x_train, x_test, y_train, y_test = train_test_split(X,y, test_size=0.33, random_state=42)
 
 # Estandaritzar les dades: StandardScaler
 # TODO
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
 
-scaler_test = StandardScaler()
-X_test = scaler_test.fit_transform(X_test)
+scaler = StandardScaler()
+x_train = scaler.fit_transform(x_train)
+
+scaler = StandardScaler()
+x_test = scaler.fit_transform(x_test)
 
 # Entrenam una SVM linear (classe SVC)
 # TODO
-model = SVC(C = 10000 , kernel = 'linear')
-model.fit(X_train,y_train)
+modelo= SVC (C=10000 , kernel='linear')
+modelo.fit(x_train,y_train)
+
 # Prediccio
 # TODO
-result = model.predict(X_test)
+result = modelo.predict(x_test)
 
 # Metrica
 # TODO

@@ -45,12 +45,14 @@ class Adaline:
         self.cost_ = []  # Per calcular el cost a cada iteració (EXTRA)
 
         for _ in range(self.n_iter):
-            
-            X0 = np.hstack([np.ones((X.shape[0],1)),X])
-            
-            activate = np.dot(X0,np.transpose(self.w_))
-            
-            self.w_ += self.eta * (np.dot((y-activate), X0))
+            #TODO: PUT YOUR CODE HERE
+            self.net_output(X) #valor de sortida de la xarxa
+
+            #ACTUALITZACIO
+            for xi, target in zip(X, y):
+                update = self.eta * (target - self.predict(xi))  # Si la prediccio es correcta update = 0
+                self.w_[1:] += update * xi  # actualitzacio dels pesos
+                self.w_[0] += update  # actualitzacio del bias
             
 
     def net_output(self, X):
